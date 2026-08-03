@@ -1,16 +1,16 @@
 # Finora — Product and Engineering Case Study
 
-> Public case study only. Finora's production source code, infrastructure configuration, and student data are private.
+**Nickhil Earla — Co-Founder and Product Lead**
 
-[Live platform](https://usefinora.com) · [Voyage Dallas profile](https://voyagedallas.com/interview/meet-nickhil-earla-ahaan-kothari-and-shaurya-saxena/) · [Coppell Student Media coverage](https://coppellstudentmedia.com/142635/studentlife/finora-levels-up-financial-literacy-for-gen-z-learners/)
+[Live platform](https://usefinora.com) · [Founder profile](https://usefinora.com/about) · [LinkedIn](https://www.linkedin.com/in/nickhil-earla/) · [GitHub](https://github.com/MysticX662) · [MemShield research](https://revsoc.ai/research/memshield)
+
+This public case study explains the product, architecture, and my contribution. Finora's production source code, infrastructure configuration, and student data remain private.
 
 ## Product
 
 Finora is an AI-powered financial education platform designed to make personal finance more adaptive, interactive, and approachable for students. The platform combines personalized lessons, knowledge checks, simulations, gamification, and an AI learning assistant with educator-facing implementation workflows.
 
 ## My Role
-
-**Nickhil Earla — Co-Founder and Product Lead**
 
 My work spans both hands-on engineering and product leadership:
 
@@ -19,7 +19,7 @@ My work spans both hands-on engineering and product leadership:
 - Converted student, parent, and educator feedback into product requirements and engineering priorities
 - Broke larger systems into developer-owned components, coordinated integrations, and reviewed the completed experience as a whole
 - Led major product rebuilds after user testing showed that technically functional lessons were not sufficiently engaging or easy to navigate
-- Helped connect product decisions with school implementation, educator needs, and institutional pilot planning
+- Connected product decisions with school implementation, educator needs, accessibility, and institutional pilot planning
 - Led the technical integration of MarginIt's acquired product and brand into Finora's gamified learning direction
 
 ## Product Systems
@@ -72,17 +72,13 @@ LLM services and structured generation pipelines
 - Capacitor for mobile deployment
 - LLM-backed content and tutoring workflows
 
-## Dated Impact
-
-To keep public metrics precise, figures are defined by what they measure:
+## Impact
 
 - **1,500 registered accounts by mid-July 2026**
 - **400,000+ organic views** across Finora social content
-- Original founding team of **Nickhil Earla, Ahaan Kothari, and Shaurya Saxena**
-- Second place in the TiE Dallas Young Entrepreneurs competition, which provided Finora's initial non-dilutive funding
-- Product and brand acquisition of **MarginIt** for integration into Finora's gamified financial-learning experience
-
-Registered accounts are not presented as monthly active users or completed learners. Program, pilot, and engagement metrics should be reported separately when finalized.
+- Second place in the **TiE Dallas Young Entrepreneurs Competition**, earning Finora's initial non-dilutive funding
+- Acquired the **MarginIt** product and brand for integration into Finora's gamified financial-learning experience
+- Built by the original founding team of **Nickhil Earla, Ahaan Kothari, and Shaurya Saxena**
 
 ## Product-Learning Process
 
@@ -98,6 +94,22 @@ The product process shifted toward:
 
 That process shaped Finora into both an engineering project and a study in human-centered product development.
 
-## Privacy and Source Availability
+## Selected Work Beyond Finora
 
-This repository intentionally contains no production code, API keys, database schemas containing student information, internal partnership documents, or private school data. Technical details are presented at the system level to explain the work without exposing proprietary implementation or user information.
+### MemShield
+
+Published through RevSoc Research Division, MemShield is a three-layer defensive middleware architecture for persistent memory poisoning in stateful autonomous AI agents. The project includes a 23-page white paper, reproducible evaluation code, architecture documentation, and an open-source Python implementation.
+
+[Read the publication](https://revsoc.ai/research/memshield) · [View the repository](https://github.com/MysticX662/MemShieldResearch)
+
+### PermitVision
+
+Built a private full-stack opportunity-intelligence platform for Skyline Partnership, transforming public permit and property records into ranked HVAC market opportunities. The system ingested more than 211,000 permit records and produced 52,662 ranked leads with geographic heatmaps, property dossiers, deterministic scoring, and export workflows.
+
+### FrontierBuild
+
+Co-founded and operated a global startup-style AI competition for student builders. Built the public website, registration and submission systems, participant workflows, and supporting technical operations.
+
+## Public Coverage
+
+[Voyage Dallas founder profile](https://voyagedallas.com/interview/meet-nickhil-earla-ahaan-kothari-and-shaurya-saxena/) · [Coppell Student Media coverage](https://coppellstudentmedia.com/142635/studentlife/finora-levels-up-financial-literacy-for-gen-z-learners/)
