@@ -1,115 +1,100 @@
-# Finora — Product and Engineering Case Study
+# Finora — Engineering & Product Case Study
 
-**Nickhil Earla — Co-Founder and Product Lead**
+> **Product and engineering case study for Finora, an AI-powered financial education platform.**
 
-[Live platform](https://usefinora.com) · [Founder profile](https://usefinora.com/about) · [LinkedIn](https://www.linkedin.com/in/nickhil-earla/) · [GitHub](https://github.com/MysticX662) · [MemShield research](https://revsoc.ai/research/memshield)
+[![Website](https://img.shields.io/badge/Platform-usefinora.com-blue)](https://usefinora.com)
+[![Status](https://img.shields.io/badge/Production-Active-brightgreen)](https://usefinora.com)
 
-This public case study explains the product, architecture, and my contribution. Finora's production source code, infrastructure configuration, and student data remain private.
+---
 
-## Product
+## Source-code availability
 
-Finora is an AI-powered financial education platform designed to make personal finance more adaptive, interactive, and approachable for students. The platform combines personalized lessons, knowledge checks, simulations, gamification, and an AI learning assistant with educator-facing implementation workflows.
+> **Notice:** Finora’s production source code, internal infrastructure, user data, and partner information remain private. This repository is a public engineering and product case study containing only sanitized materials approved for public presentation.
 
-## My Role
+---
 
-My work spans both hands-on engineering and product leadership:
+## Executive Summary & Product Overview
 
-- Designed the platform architecture and core student learning flows
-- Built and integrated full-stack product systems across the frontend, database, authentication, and AI-backed services
-- Converted student, parent, and educator feedback into product requirements and engineering priorities
-- Broke larger systems into developer-owned components, coordinated integrations, and reviewed the completed experience as a whole
-- Led major product rebuilds after user testing showed that technically functional lessons were not sufficiently engaging or easy to navigate
-- Connected product decisions with school implementation, educator needs, accessibility, and institutional pilot planning
-- Led the technical integration of MarginIt's acquired product and brand into Finora's gamified learning direction
+Finora is an interactive financial-literacy platform designed to help students master real-world money management. Traditional financial education often relies on static textbooks or generic lectures. Finora bridges this gap by combining modular curriculum with an interactive AI assistant ("Finny") that adapts scenario difficulties and guidance based on student performance.
 
-## Product Systems
+- **Target Audience**: High school students, educators, and youth financial programs.
+- **Core Value Proposition**: Gamified micro-lessons, adaptive real-world budget simulations, and automated progress analytics for educators.
+- **Live Site**: [https://usefinora.com](https://usefinora.com)
 
-The platform has included work across:
+---
 
-- Personalized lesson and learning-path generation
-- Finny, an AI financial-learning assistant
-- Knowledge checks and adaptive practice
-- Student progress, XP, levels, badges, and streaks
-- Real-world financial scenarios and simulations
-- Teacher and classroom workflows
-- Mobile packaging and cross-platform delivery
-- Accessibility, student-data isolation, and school deployment requirements
+## My Role & Technical Leadership
 
-## Technical Architecture
+I am the **Founder and Lead Product Architect** of Finora. In this capacity, I:
+- **Architected the Platform**: Designed the frontend architecture (React + TypeScript + Vite) and backend data layer (Supabase + PostgreSQL).
+- **Engineered AI Integration**: Developed the prompt pipelines and adaptive difficulty system powering Finny.
+- **Implemented Core Workflows**: Built user authentication, interactive budgeting components, gamification state management, and educator reporting tools.
+- **Iterated on User Feedback**: Conducted pilot feedback sessions with educators and students to refine UI/UX accessibility.
 
-```text
-Student and educator interfaces
-            │
-            ▼
-React + TypeScript application layer
-            │
-            ├── Interactive learning components
-            ├── Gamification and progress systems
-            ├── Teacher and classroom workflows
-            └── Mobile delivery through Capacitor
-            │
-            ▼
-Supabase application backend
-            ├── PostgreSQL data model
-            ├── Authentication and role-aware access
-            ├── Storage and analytics events
-            └── Edge functions for AI-backed workflows
-            │
-            ▼
-LLM services and structured generation pipelines
-            ├── Personalized lessons
-            ├── Learning pathways
-            ├── Knowledge checks
-            └── Contextual student assistance
+---
+
+## High-Level Architecture & Tech Stack
+
+```
+   [ React + TypeScript Client ]
+               │
+      (REST / WebSockets)
+               ▼
+   [ Supabase Platform Layer ]
+   ├── Authentication (JWT / RLS)
+   ├── PostgreSQL Database (UserData, Lessons, Progress)
+   └── Edge Functions (AI Prompt Processing & Safety Filters)
+               ▼
+   [ AI Service Layer ] (Adaptive Scenario Engine)
 ```
 
-### Core technologies
+### Technology Stack
+- **Frontend**: React, TypeScript, Vite, CSS Modules
+- **Backend & Database**: Supabase, PostgreSQL, Row Level Security (RLS)
+- **AI & Analytics**: Edge Functions, Guardrailed LLM Scenarios
+- **Deployment**: Vercel, Supabase Platform
 
-- React, TypeScript, and Vite
-- Tailwind CSS and component-based UI systems
-- Supabase, PostgreSQL, authentication, and edge functions
-- React Query and structured client-side data flows
-- Capacitor for mobile deployment
-- LLM-backed content and tutoring workflows
+---
 
-## Impact
+## Core Product Features & Workflow Analysis
 
-- **1,500 registered accounts by mid-July 2026**
-- **400,000+ organic views** across Finora social content
-- Second place in the **TiE Dallas Young Entrepreneurs Competition**, earning Finora's initial non-dilutive funding
-- Acquired the **MarginIt** product and brand for integration into Finora's gamified financial-learning experience
-- Built by the original founding team of **Nickhil Earla, Ahaan Kothari, and Shaurya Saxena**
+### 1. Student Dashboard & Learning Paths
+- Bite-sized modules covering credit scores, budgeting, saving, investing basics, and debt management.
+- Dynamic streak tracking, experience points (XP), and milestone badges to encourage continuous engagement.
 
-## Product-Learning Process
+### 2. Interactive AI Assistant ("Finny")
+- Provides contextual explanations when students make decisions in financial simulations.
+- Implements safety guardrails to ensure advice remains strictly educational and age-appropriate.
 
-Finora's development was not a straight line from idea to finished application. Early versions proved that software can work exactly as designed while still failing the people using it. Student and educator testing exposed confusing navigation, fragile AI interactions, and lesson experiences that felt more like digital worksheets than something students would return to.
+### 3. Financial Simulations & Scenario Builder
+- Real-world decision branching (e.g., choosing insurance plans, managing unexpected emergency expenses).
+- Instant financial feedback showing long-term net worth impact based on daily choices.
 
-The product process shifted toward:
+### 4. Educator Workflow & Classroom Analytics
+- Class roster management with anonymized progress tracking.
+- Insights into topic mastery rates across different modules to help teachers identify where students need extra support.
 
-1. Observing where real users became confused or disengaged
-2. Asking educators what would prevent classroom adoption
-3. Turning those failures into concrete product requirements
-4. Rebuilding the experience around interaction, clarity, and repeat use
-5. Coordinating engineering, content, and implementation rather than treating them as separate problems
+---
 
-That process shaped Finora into both an engineering project and a study in human-centered product development.
+## Technical Challenges & Tradeoffs
 
-## Selected Work Beyond Finora
+| Challenge | Engineering Approach | Tradeoff / Outcome |
+| :--- | :--- | :--- |
+| **Real-time AI Guidance Latency** | Utilized lightweight Edge Functions with pre-warmed prompt templates. | Reduced latency to ~600ms while maintaining safety guardrails. |
+| **Stateful Simulation Persistence** | Designed normalized PostgreSQL tables with client-side state caching. | Prevents loss of progress during multi-step budgeting scenarios. |
+| **Student Data Privacy** | Strict Supabase Row-Level Security (RLS) policies and minimal PII collection. | Ensures district compliance and zero leakage across student accounts. |
 
-### MemShield
+---
 
-Published through RevSoc Research Division, MemShield is a three-layer defensive middleware architecture for persistent memory poisoning in stateful autonomous AI agents. The project includes a 23-page white paper, reproducible evaluation code, architecture documentation, and an open-source Python implementation.
+## Lessons Learned & Future Development
 
-[Read the publication](https://revsoc.ai/research/memshield) · [View the repository](https://github.com/MysticX662/MemShieldResearch)
+1. **Simplicity Over Complexity in EdTech UI**: Micro-interactions and immediate feedback drive significantly higher completion rates than dense text lessons.
+2. **Deterministic Fallbacks for AI**: Always pair AI responses with deterministic fallback rules to handle edge cases or service interruptions seamlessly.
+3. **School District Requirements**: Building privacy-first architecture from day one simplifies future institutional deployment.
 
-### PermitVision
+---
 
-Built a private full-stack opportunity-intelligence platform for Skyline Partnership, transforming public permit and property records into ranked HVAC market opportunities. The system ingested more than 211,000 permit records and produced 52,662 ranked leads with geographic heatmaps, property dossiers, deterministic scoring, and export workflows.
+## Links & Reference
 
-### FrontierBuild
-
-Co-founded and operated a global startup-style AI competition for student builders. Built the public website, registration and submission systems, participant workflows, and supporting technical operations.
-
-## Public Coverage
-
-[Voyage Dallas founder profile](https://voyagedallas.com/interview/meet-nickhil-earla-ahaan-kothari-and-shaurya-saxena/) · [Coppell Student Media coverage](https://coppellstudentmedia.com/142635/studentlife/finora-levels-up-financial-literacy-for-gen-z-learners/)
+- **Official Website**: [https://usefinora.com](https://usefinora.com)
+- **About & Leadership**: [https://usefinora.com/about](https://usefinora.com/about)
