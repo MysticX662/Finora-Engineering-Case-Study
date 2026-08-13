@@ -1,100 +1,92 @@
 # Finora — Engineering & Product Case Study
 
-> **Product and engineering case study for Finora, an AI-powered financial education platform.**
+> **Public product and engineering case study for Finora, an AI-powered financial education platform.**
 
 [![Website](https://img.shields.io/badge/Platform-usefinora.com-blue)](https://usefinora.com)
 [![Status](https://img.shields.io/badge/Production-Active-brightgreen)](https://usefinora.com)
 
 ---
 
-## Source-code availability
+## Product Overview
 
-> **Notice:** Finora’s production source code, internal infrastructure, user data, and partner information remain private. This repository is a public engineering and product case study containing only sanitized materials approved for public presentation.
+Finora is a gamified financial-literacy platform for students, educators, schools, and youth programs. It combines short lessons, knowledge checks, simulations, progress systems, an AI educational assistant ("Finny"), and educator-facing workflows.
 
----
+- **Live platform:** [usefinora.com](https://usefinora.com)
+- **Current footprint (August 2026):** 2,000+ registered accounts and 400,000+ organic views
+- **Implementation:** City of Irving youth financial-literacy launch, one school deployment, and five additional testing/pilot groups
 
-## Executive Summary & Product Overview
-
-Finora is an interactive financial-literacy platform designed to help students master real-world money management. Traditional financial education often relies on static textbooks or generic lectures. Finora bridges this gap by combining modular curriculum with an interactive AI assistant ("Finny") that adapts scenario difficulties and guidance based on student performance.
-
-- **Target Audience**: High school students, educators, and youth financial programs.
-- **Core Value Proposition**: Gamified micro-lessons, adaptive real-world budget simulations, and automated progress analytics for educators.
-- **Live Site**: [https://usefinora.com](https://usefinora.com)
+The metrics above describe separate measures. Registered accounts are not presented as active users, and organic views are not presented as product usage.
 
 ---
 
-## My Role & Technical Leadership
+## My Role — Co-Founder & Product/Engineering Lead
 
-I am the **Founder and Lead Product Architect** of Finora. In this capacity, I:
-- **Architected the Platform**: Designed the frontend architecture (React + TypeScript + Vite) and backend data layer (Supabase + PostgreSQL).
-- **Engineered AI Integration**: Developed the prompt pipelines and adaptive difficulty system powering Finny.
-- **Implemented Core Workflows**: Built user authentication, interactive budgeting components, gamification state management, and educator reporting tools.
-- **Iterated on User Feedback**: Conducted pilot feedback sessions with educators and students to refine UI/UX accessibility.
+As **Co-Founder & Product/Engineering Lead**, I work across product architecture, engineering, testing, and implementation.
+
+- **Platform architecture:** React + TypeScript frontend with Supabase/PostgreSQL backend systems
+- **Core systems:** Authentication, lessons/progress, gamification, simulations, AI-assisted learning, and educator workflows
+- **Product iteration:** Led two major rebuilds after testing with students, parents, and educators exposed usability and engagement problems
+- **Execution:** Translated feedback into specifications and coordinated engineering, content, and outreach contributors
+- **Integration:** Led technical integration of MarginIt’s acquired product and brand into Finora
 
 ---
 
-## High-Level Architecture & Tech Stack
+## High-Level Architecture
 
-```
-   [ React + TypeScript Client ]
-               │
-      (REST / WebSockets)
-               ▼
-   [ Supabase Platform Layer ]
-   ├── Authentication (JWT / RLS)
-   ├── PostgreSQL Database (UserData, Lessons, Progress)
-   └── Edge Functions (AI Prompt Processing & Safety Filters)
-               ▼
-   [ AI Service Layer ] (Adaptive Scenario Engine)
+```text
+[ React + TypeScript Client ]
+            |
+            v
+[ Supabase Platform Layer ]
+  - Authentication
+  - PostgreSQL
+  - Row Level Security
+  - Server / edge functions
+            |
+            v
+[ AI / Learning Service Layer ]
+  - Educational prompt workflows
+  - Adaptive lesson and scenario logic
+  - Safety and fallback handling
 ```
 
 ### Technology Stack
-- **Frontend**: React, TypeScript, Vite, CSS Modules
-- **Backend & Database**: Supabase, PostgreSQL, Row Level Security (RLS)
-- **AI & Analytics**: Edge Functions, Guardrailed LLM Scenarios
-- **Deployment**: Vercel, Supabase Platform
+
+- **Frontend:** React, TypeScript, Vite
+- **Backend & database:** Supabase, PostgreSQL, Row Level Security
+- **AI / services:** LLM-backed service workflows and server/edge functions
+- **Deployment:** Vercel and Supabase
 
 ---
 
-## Core Product Features & Workflow Analysis
+## Core Product Systems
 
-### 1. Student Dashboard & Learning Paths
-- Bite-sized modules covering credit scores, budgeting, saving, investing basics, and debt management.
-- Dynamic streak tracking, experience points (XP), and milestone badges to encourage continuous engagement.
+### Learning paths and micro-lessons
+Short modules covering budgeting, saving, credit, investing basics, debt, and related personal-finance concepts, with knowledge checks and progression systems.
 
-### 2. Interactive AI Assistant ("Finny")
-- Provides contextual explanations when students make decisions in financial simulations.
-- Implements safety guardrails to ensure advice remains strictly educational and age-appropriate.
+### Finny AI
+Contextual educational explanations tied to student questions and scenarios, with guardrails intended to keep responses educational rather than individualized financial advice.
 
-### 3. Financial Simulations & Scenario Builder
-- Real-world decision branching (e.g., choosing insurance plans, managing unexpected emergency expenses).
-- Instant financial feedback showing long-term net worth impact based on daily choices.
+### Simulations and applied practice
+Scenario-based financial decisions and interactive practice designed around real-world choices.
 
-### 4. Educator Workflow & Classroom Analytics
-- Class roster management with anonymized progress tracking.
-- Insights into topic mastery rates across different modules to help teachers identify where students need extra support.
+### Educator workflows
+Tools for organizing learning and reviewing progress, designed to fit into existing classroom and youth-program routines.
 
 ---
 
-## Technical Challenges & Tradeoffs
+## Product Lessons
 
-| Challenge | Engineering Approach | Tradeoff / Outcome |
-| :--- | :--- | :--- |
-| **Real-time AI Guidance Latency** | Utilized lightweight Edge Functions with pre-warmed prompt templates. | Reduced latency to ~600ms while maintaining safety guardrails. |
-| **Stateful Simulation Persistence** | Designed normalized PostgreSQL tables with client-side state caching. | Prevents loss of progress during multi-step budgeting scenarios. |
-| **Student Data Privacy** | Strict Supabase Row-Level Security (RLS) policies and minimal PII collection. | Ensures district compliance and zero leakage across student accounts. |
-
----
-
-## Lessons Learned & Future Development
-
-1. **Simplicity Over Complexity in EdTech UI**: Micro-interactions and immediate feedback drive significantly higher completion rates than dense text lessons.
-2. **Deterministic Fallbacks for AI**: Always pair AI responses with deterministic fallback rules to handle edge cases or service interruptions seamlessly.
-3. **School District Requirements**: Building privacy-first architecture from day one simplifies future institutional deployment.
+1. **A technically functional product can still fail a user test.** Early versions exposed places where the intended flow did not match how people naturally used the product.
+2. **EdTech has to fit existing routines.** Product decisions increasingly prioritize short lessons, clear progress, and educator workflows rather than assuming students will adopt another standalone tool.
+3. **AI needs product boundaries.** AI-assisted learning is paired with structured logic, safety constraints, and fallback behavior rather than treated as the entire product.
+4. **Institutional requirements shape architecture.** Access control, minimal-data practices, and educator workflows are treated as product requirements.
 
 ---
 
-## Links & Reference
+## Links
 
-- **Official Website**: [https://usefinora.com](https://usefinora.com)
-- **About & Leadership**: [https://usefinora.com/about](https://usefinora.com/about)
+- **Live platform:** [usefinora.com](https://usefinora.com)
+- **About / team:** [usefinora.com/about](https://usefinora.com/about)
+
+This repository is a public case study and does not expose Finora’s production source code.
